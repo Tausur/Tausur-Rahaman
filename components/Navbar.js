@@ -1,20 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { BiSearch } from 'react-icons/bi'
-import { useState } from 'react'
 
 const Navbar = () => {
-
-    const [active, setActive] = useState(true)
-
-    const log = () => {
-        if (active == true) {
-            setActive(false)
-        }
-        else {
-            setActive(true)
-        }
-    }
 
     return (
         <>
