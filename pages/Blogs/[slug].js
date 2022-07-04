@@ -23,14 +23,14 @@ const Post = ({ blogs }) => {
                             <div className='m-auto rounded-lg w-4/5 pb-20'>
                                 <img src={blog.img} alt="" />
                             </div>
-                            <h1 className='text-4xl font-bold pl-32 pb-20'>{blog.title}</h1>
-                            <p className='text-xl font-semibold px-32 pb-20'>{blog.desc}</p>
+                            <h1 className='md:text-4xl md:font-bold md:pl-32 md:pb-20 font-bold text-xl m-5 mb-10'>{blog.title}</h1>
+                            <p className='md:text-xl font-semibold md:px-32 md:pb-20  text-lg m-5'>{blog.desc}</p>
                             <p className='px-32 pb-20 text-3xl'>Comments</p>
                             <form className='flex' onSubmit={(e) => {
                                 e.preventDefault()
                                 commentArray.push(comment)
                             }}>
-                                <input onChange={(e) => setComment(e.target.value)} value={comment} type="text" className='ml-32 mb-5 focus:outline-none border-black text-lg border-b w-96' placeholder='Post a comment' />
+                                <input onChange={(e) => setComment(e.target.value)} value={comment} type="text" className='md:ml-32 md:mb-5 focus:outline-none border-black md:text-lg border-b md:w-96 m-8 w-72' placeholder='Post a comment' />
                                 <button type="submit">
                                     <IoIosSend className='text-3xl text-blue-500' />
                                 </button>
