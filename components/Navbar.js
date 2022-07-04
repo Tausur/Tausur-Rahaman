@@ -1,31 +1,48 @@
 import Link from 'next/link'
 import React from 'react'
-import { BiSearch } from 'react-icons/bi'
+import { useState } from 'react'
 
 const Navbar = () => {
 
+    const [name, setName] = useState('menu')
+
+    const style = {
+        mobileNav : `md:mx-32 bg-gray-900 text-gray-300 md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 opacity-100 transition-all ease-in duration-500 top-[80px] backdrop-blur-sm`,
+        normal : `md:mx-32 md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100  top-[-400px] transition-all ease-in duration-500`
+    }
+
+
     return (
         <>
-            <div className='w-screen'>
-                <header className="body-font backdrop-blur-md">
-                    <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                        <a className="flex title-font font-medium items-center text-black mb-4 md:mb-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-blue p-2 bg-blue-500 rounded-full" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                            </svg>
-                            <span className="ml-3 text-xl">Tausur Rahaman</span>
-                        </a>
-                        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                            <Link href='/'><a className="mr-8 hover:text-blue-500 cursor-pointer text-xl" >Home</a></Link>
-                            <Link href='/blogs'><a className="mr-8 hover:text-blue-500 cursor-pointer text-xl" >Blogs</a></Link>
-                            <Link href='/community'><a className="mr-8 hover:text-blue-500 cursor-pointer text-xl" >Community</a></Link>
-                            <Link href='/contact'><a className="mr-8 hover:text-blue-500 cursor-pointer text-xl">Contact</a></Link>
-                        </nav>
-                            <input type="text" className="bg-transparent outline-none border-gray-600 font-mono text-lg"/>
-                            <BiSearch className='text-xl cursor-pointer' />
-                    </div>
-                </header>
-            </div>
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <nav className='p-5 backdrop-blur-lg md:flex md:items-center md:justify-between w-screen'>
+                <div className='flex justify-between'>
+                    <span className='text-2xl flex cursor-pointer'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                        Tausur Rahaman
+                    </span>
+                    <span className='text-3xl cursor-pointer md:hidden block mx-2' onClick={()=>{setName(name == 'menu' ? 'close' : 'menu')}}>
+                        <ion-icon name={name}></ion-icon>
+                    </span>
+                </div>
+                <ul className={name == 'close' ? `${style.mobileNav}` : `${style.normal}`}>
+                    <li className='text-xl hover:text-cyan-500 duration-500 mx-4 my-6 md:my-0 md:mx-8'>
+                        <Link href={'/'}>Home</Link>
+                    </li>
+                    <li className='text-xl hover:text-cyan-500 duration-500 mx-4 my-6 md:my-0 md:mx-8'>
+                        <Link href={'/blogs'}>Blogs</Link>
+                    </li>
+                    <li className='text-xl hover:text-cyan-500 duration-500 mx-4 my-6 md:my-0 md:mx-8'>
+                        <Link href={'/community'}>Community</Link>
+                    </li>
+                    <li className='text-xl hover:text-cyan-500 duration-500 mx-4 my-6 md:my-0 md:mx-8'>
+                        <Link href={'/contact'}>Contact</Link>
+                    </li>
+                </ul>
+            </nav>
         </>
     )
 }
