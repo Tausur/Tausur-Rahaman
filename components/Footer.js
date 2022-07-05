@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const Footer = () => {
     const [name, setName] = useState("")
@@ -15,11 +17,18 @@ const Footer = () => {
             headers: {
                 'Content-Type': "application/json"
             }
+        }).then(res=>{
+            if(res.ok){
+                toast.success("Feedback sent successfully")
+            }else{
+                toast.error("Failed to sent")
+            }
         })
     }
 
     return (
         <div>
+            <ToastContainer/>
             <footer className="text-gray-400 bg-gray-900 body-font">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-wrap md:text-left text-center order-first">
