@@ -84,15 +84,15 @@ const Footer = () => {
                             </nav>
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                            <h2 className="title-font font-medium text-white tracking-widest mb-3 text-lg">Contact</h2>
-                            <div className="xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
+                            <h2 className="flex justify-center items-center title-font font-medium text-white tracking-widest mb-3 text-lg">Contact</h2>
+                            <div className=" flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-center md:justify-center">
                                 <form onSubmit={handleSubmit}>
                                     <div className="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2" >
                                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} id="footer-field" name="footer-field" className="mb-2 bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:bg-transparent focus:ring-2 focus:ring-blue-900 focus:border-blue-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-60" placeholder='Name' />
                                         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} id="footer-field" name="footer-field" className="mb-2 bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:bg-transparent focus:ring-2 focus:ring-blue-900 focus:border-blue-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-60" placeholder='Email' />
                                         <textarea type="text" value={message} onChange={(e) => setMessage(e.target.value)} id="footer-field" name="footer-field" className="mb-2 bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:bg-transparent focus:ring-2 focus:ring-blue-900 focus:border-blue-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-60" placeholder='Message' />
                                     </div>
-                                    <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Send</button>
+                                    <button className="lg:mt-2 xl:mt-0  text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded-full flex justify-center items-center">Send</button>
                                 </form>
                             </div>
                         </div>

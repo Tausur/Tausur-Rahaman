@@ -35,7 +35,7 @@ const contact = () => {
     <div className='bg-gray-800 text-gray-300'>
       <ToastContainer/>
       <div className='py-28 flex justify-center items-center'>
-        <form onSubmit={handleSubmit} className="bg-gray-900 md:w-96 md:h-[520px] rounded-3xl" style={{
+        <form onSubmit={handleSubmit} className="bg-gray-900 md:w-96 md:h-[520px] rounded-3xl m-2" style={{
           "boxShadow": "25px 25px 75px rgba(0,0,0,0.25), 10px 10px 70px rgba(0,0,0,0.25), inset 5px 5px 10px rgba(0,0,0,0.5), inset 5px 5px 10px rgba(255,255,255,0.2), inset -5px -5px 15px rgba(0,0,0,0.75)"
         }}>
           <h1 className='md:text-3xl font-semibold text-gray-300 flex justify-center items-center pt-5 py-7 text-3xl'>Get in touch</h1>

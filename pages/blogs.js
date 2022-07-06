@@ -17,7 +17,7 @@ const blogs = ({ blogs }) => {
                     <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={blog.img} alt="blog" />
                     <div className="p-6">
                       <h1 className="title-font text-lg font-medium text-white mb-3">{blog.title}</h1>
-                      <p className="leading-relaxed mb-3">{blog.shortDesc}</p>
+                      <p className="leading-relaxed mb-3">{blog.desc.slice(0,100)} ...</p>
                       <div className="flex items-center flex-wrap ">
                         <a className="text-blue-400 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">Learn More
                           <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
