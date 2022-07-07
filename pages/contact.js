@@ -16,19 +16,18 @@ const contact = () => {
   const handleSubmit = async (event) => {
     const data = { name, email, message }
     event.preventDefault()
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': "application/json"
-      }
-    }).then(res => {
-      if (res.ok) {
-        toast.success("Feedback sent successfully")
-      } else {
-        toast.error("Failed to sent")
-      }
-    })
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': "application/json"
+        }
+      }) 
+      toast.success("Message sent")
+    } catch (error) {
+      toast.error("Failed to send message")
+    }
   }
 
   return (
