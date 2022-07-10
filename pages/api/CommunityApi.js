@@ -5,8 +5,8 @@ const handler = async(req,res)=>{
     if(req.method == 'POST'){
         let addCommunity = new Community({
             post : req.body.post,
+            isImg : req.body.isImg,
             img : req.body.img,
-            like : req.body.like,
             comment : req.body.comment
         })
         await addCommunity.save()
