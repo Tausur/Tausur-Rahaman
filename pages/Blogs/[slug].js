@@ -60,11 +60,10 @@ const Post = ({ blogs, comments }) => {
                 {comments.map((comment) => {
                     if (comment.post == slug) {
                         allCom.push(comment)
-                        my = allCom.reverse()
                     }
                 })}
                 <div>
-                   {my.map((c)=>{
+                   {allCom.map((c)=>{
                     return <div className='w-3/4 h-full bg-gray-300 md:ml-32 rounded-xl md:mb-2 my-2 mx-2'>
                     <div className='flex  items-center'>
                         <div className='bg-blue-500 text-lg rounded-full w-10 h-10 flex justify-center items-center text-white md:ml-8 md:my-2 mx-1 my-1 shadow-xl'>
@@ -92,6 +91,7 @@ export async function getServerSideProps(context) {
     }
     let blogs = await Blog.find()
     let comments = await Comment.find()
+    comments.reverse()
     return {
         props: {
             blogs: JSON.parse(JSON.stringify(blogs)),

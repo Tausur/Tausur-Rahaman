@@ -11,7 +11,6 @@ const contact = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-  const [show, setShow] = useState(false);
 
   const handleSubmit = async (event) => {
     const data = { name, email, message }

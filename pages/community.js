@@ -4,13 +4,11 @@ import CommunityModel from '../model/Community'
 import mongoose from 'mongoose'
 import CommunityPost from '../components/CommunityPost'
 
-const Community = ({ communities }) => {
-
-  const [like, setLike] = useState(false)
-
+const Community = ({ cmp }) => {
+  
   return (
-    <div className='bg-gray-700 text-white md:py-32 py-12'>
-      {communities.map((community) => {
+    <div className='bg-gray-700 text-white md:py-32 py-20'>
+      {cmp.map((community) => {
         return <CommunityPost community={community}/>
       })}
     </div>
@@ -22,8 +20,9 @@ export async function getServerSideProps(context) {
     await mongoose.connect(process.env.MONGO_URI)
   }
   let communities = await CommunityModel.find()
+  let cmp = await communities.reverse()
   return {
-    props: { communities: JSON.parse(JSON.stringify(communities)) }
+    props: { cmp: JSON.parse(JSON.stringify(cmp)) }
   }
 }
 

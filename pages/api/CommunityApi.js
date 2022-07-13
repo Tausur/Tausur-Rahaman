@@ -7,7 +7,8 @@ const handler = async(req,res)=>{
             post : req.body.post,
             isImg : req.body.isImg,
             img : req.body.img,
-            comment : req.body.comment
+            date : req.body.date,
+            comment : req.body.comment,
         })
         await addCommunity.save()
         res.status(200).json({success : "Added this post to the Community"})
