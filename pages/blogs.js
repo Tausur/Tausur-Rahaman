@@ -54,6 +54,7 @@ export async function getServerSideProps(context) {
     await mongoose.connect(process.env.MONGO_URI)
   }
   let blogs = await Blog.find()
+  blogs = blogs.reverse()
   return {
     props: { blogs: JSON.parse(JSON.stringify(blogs)) }
   }
