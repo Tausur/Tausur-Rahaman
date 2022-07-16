@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
 import { BiLike, BiCommentDetail } from 'react-icons/bi'
 import { RiSendPlaneFill } from 'react-icons/ri'
@@ -11,14 +12,35 @@ const CommunityPost = ({ community }) => {
   const [myCom, setMyCom] = useState('')
   const [name, setName] = useState('')
   const [msg, setMsg] = useState('')
+  const [abc, setAbc] = useState(false)
 
-  const handleComment = () => {
+  let myarr = []
+  com()
+
+  async function com(){
+    
+    let arr = community.comment
+
+    myarr = []
+
+    for (let i = arr.length-1; i >= 0; i--) { 
+      myarr.push(arr[i])
+    }
+
+    return myarr
+  }
+
+  const [myabc, setMyabc] = useState(myarr)
+
+  const handleComment = async() => {
     if (myCom == false) {
       setMyCom(true)
     } else {
       setMyCom(false)
     }
   }
+
+  
 
   const handleLike = () => {
     if (like == false) {
@@ -28,19 +50,27 @@ const CommunityPost = ({ community }) => {
     }
   }
 
+  useEffect(() =>{
+  }, [abc])
+
   const handler = async (e) => {
+    setAbc(true)
     e.preventDefault()
-    const comment = community.comment
-    comment.push({ name, msg })
-    const id = community._id
-    const data = { comment, id }
-    let res = await fetch('/api/addCommunityComment', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': "application/json"
-      }
-    })
+    if (name !== "" || !msg !== "") {
+      const comment = community.comment
+      comment.push({ name, msg })
+      const id = community._id
+      const data = { comment, id }
+      let res = await fetch('/api/addCommunityComment', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': "application/json"
+        }
+      })
+    }
+    com()
+    setMyabc(myarr)
   }
 
   return (
@@ -88,7 +118,7 @@ const CommunityPost = ({ community }) => {
               </form>
               <div className='text-lg md:px-8 md:pt-2 md:pb-2 px-5'>
                 <p className='text-xl font-semibold md:pt-3 md:py-0 py-2'>All Comments</p>
-                {community.comment.map((comment) => {
+                {myabc.map((comment) => {
                   return <div className='md:py-0 py-1'>
                     <div className='flex items-center'>
                       <div className='bg-blue-500 md:text-lg text-md rounded-full w-10 h-10 flex justify-center items-center text-white md:ml-8 md:my-2 mx-1 my-1 shadow-xl'>

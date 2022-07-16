@@ -6,6 +6,7 @@ const BlogSchema = new mongoose.Schema({
     shortDesc: {type: String, require: true},
     desc: {type: String , require: true},
     img: {type: String , require: true},
+    comment: {type : Array}
 },{timestamps: true})
 
-export default mongoose.models.Blogs ||mongoose.model("Blogs",BlogSchema);
+export default mongoose.models.myBlogs ||mongoose.model("myBlogs",BlogSchema);
