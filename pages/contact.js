@@ -13,20 +13,16 @@ const contact = () => {
   const [message, setMessage] = useState("")
 
   const handleSubmit = async (event) => {
+    toast.success("Message sent")
     const data = { name, email, message }
     event.preventDefault()
-    try {
-      const res = await fetch('/api/contact', {
+    const res = await fetch('/api/contact', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
           'Content-Type': "application/json"
         }
       }) 
-      toast.success("Message sent")
-    } catch (error) {
-      toast.error("Failed to send message")
-    }
   }
 
   return (
