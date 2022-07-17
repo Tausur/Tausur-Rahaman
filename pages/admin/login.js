@@ -30,16 +30,16 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className='bg-green-400'>
       <ToastContainer/>
-      <div className='py-40'>
-        <div>
-          <h1 className='text-4xl flex justify-center items-center'>Admin Login</h1>
-          <div className='flex justify-center items-center'>
+      <div className='py-40 flex justify-center items-center'>
+        <div className='bg-green-500 w-1/4 h-1/4 rounded-2xl shadow-2xl'>
+          <h1 className='text-4xl flex justify-center items-center pt-5 font-bold'>Admin Login</h1>
+          <div className=''>
             <form onSubmit={handler} className='py-12'>
-              <input type="text" className='focus:outline-none text-xl bg-none border-b-2 border-black w-full block my-5' placeholder='Username' value={username} onChange={(e)=>setUsername(e.target.value)}/>
-              <input type="password" className='focus:outline-none text-xl bg-none border-b-2 border-black w-full mb-5' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
-              <button className='text-xl bg-green-500 rounded-xl py-2 px-4 hover:bg-green-600'>Login</button>
+              <input type="text" className='focus:outline-none text-xl bg-transparent border-b-2 border-black  block my-5 mx-10 placeholder:text-white'  placeholder='Username' value={username} onChange={(e)=>setUsername(e.target.value)}/>
+              <input type="password" className='focus:outline-none text-xl bg-transparent border-b-2 border-black mx-10 mb-5 placeholder:text-white' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+              <button className='text-xl bg-red-500 rounded-xl py-2 px-4 hover:bg-red-600 ml-28 mt-2 font-semibold'>Login</button>
             </form>
           </div>
         </div>
