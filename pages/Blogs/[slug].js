@@ -5,14 +5,14 @@ import { IoIosSend } from 'react-icons/io'
 import { useState, useEffect } from 'react'
 
 const Post = ({ blogs }) => {
+	useEffect(() => {
+	}, [active])
 	const router = useRouter()
 	const { slug } = router.query
 
 	const [body, setBody] = useState('')
 	const [name, setName] = useState('')
 	const [active, setActive] = useState(false)
-	useEffect(() => {
-	}, [active])
 
 	let id;
 	let comment;
