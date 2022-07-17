@@ -13,6 +13,9 @@ const CommunityPost = ({ community }) => {
   const [name, setName] = useState('')
   const [msg, setMsg] = useState('')
   const [abc, setAbc] = useState(false)
+  
+  useEffect(() =>{
+  }, [abc])
 
   let myarr = []
   com()
@@ -49,9 +52,6 @@ const CommunityPost = ({ community }) => {
       setLike(false)
     }
   }
-
-  useEffect(() =>{
-  }, [abc])
 
   const handler = async (e) => {
     setAbc(true)
