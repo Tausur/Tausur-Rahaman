@@ -14,18 +14,13 @@ const AddBlog = () => {
 
   const handler = async (e) => {
     e.preventDefault()
+    toast.success("Blog posted successfully")
     const data = { title, slug, img, desc, shortDesc }
     const res = await fetch('/api/AddBlog', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': "application/json"
-      }
-    }).then(res => {
-      if (res.ok) {
-        toast.success("Blog posted successfully")
-      } else {
-        toast.error("Some error occured")
       }
     })
   }
