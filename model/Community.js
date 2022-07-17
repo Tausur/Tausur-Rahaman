@@ -12,4 +12,4 @@ const communitySchema = new mongoose.Schema({
     
 },{timestamps : true})
 
-export default mongoose.models.Community || mongoose.model("Community",communitySchema);
+export default mongoose.models.aicommunity || mongoose.model("aicommunity",communitySchema);

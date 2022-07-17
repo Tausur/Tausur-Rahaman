@@ -7,6 +7,7 @@ const handler = async (req,res) =>{
             slug: req.body.slug,
             title:req.body.title,
             desc:req.body.desc,
+            shortDesc: req.body.shortDesc,
             img:req.body.img
         })
         await addBlog.save()
