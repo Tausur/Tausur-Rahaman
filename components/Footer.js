@@ -9,6 +9,7 @@ const Footer = () => {
     const [message, setMessage] = useState("")
 
     const handleSubmit = async (event) => {
+        toast.success("Feedback sent successfully")
         const data = { name, email, message }
         event.preventDefault()
         const res = await fetch('/api/contact', {
@@ -16,12 +17,6 @@ const Footer = () => {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': "application/json"
-            }
-        }).then(res=>{
-            if(res.ok){
-                toast.success("Feedback sent successfully")
-            }else{
-                toast.error("Failed to sent")
             }
         })
     }
