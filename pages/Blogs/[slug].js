@@ -20,7 +20,7 @@ const Post = ({ blogs }) => {
 
 	com()
 
-	async function com() {
+	function com() {
 
 		blogs.map((blog) => {
 			if (blog.slug == slug) {
@@ -43,7 +43,6 @@ const Post = ({ blogs }) => {
 		setActive(true)
 		comment.push({ name, body })
 		const data = { comment, id }
-		try {
 			const res = await fetch('/api/AddBlogComment', {
 				method: 'POST',
 				body: JSON.stringify(data),
@@ -51,9 +50,6 @@ const Post = ({ blogs }) => {
 					'Content-Type': "application/json"
 				}
 			})
-		} catch (error) {
-			console.log(error)
-		}
 		com()
 		setMycom(myarr)
 	}
