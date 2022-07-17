@@ -22,7 +22,7 @@ const Login = () => {
         }
     }).then(res=>{
       if(res.ok){
-        router.push('/admin/adminPage')
+        router.push('/admin')
       }else{
         toast.error("Wrong credentials")
       }
