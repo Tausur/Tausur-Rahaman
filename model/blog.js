@@ -9,4 +9,4 @@ const BlogSchema = new mongoose.Schema({
     comment: {type : Array}
 },{timestamps: true})
 
-export default mongoose.models.AllBlogs ||mongoose.model("AllBlogs",BlogSchema);
+export default mongoose.models.Blogs ||mongoose.model("Blogs",BlogSchema);
