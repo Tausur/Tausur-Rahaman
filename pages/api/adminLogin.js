@@ -8,7 +8,7 @@ const handler = (req,res)=> {
       res.setHeader(
         "Set-Cookie",
         cookie.serialize("token", process.env.TOKEN, {
-          maxAge: 10,
+          maxAge: 60*10,
           sameSite: "strict",
           path: "/",
         })
