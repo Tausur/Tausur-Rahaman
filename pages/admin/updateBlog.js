@@ -16,18 +16,13 @@ const UpdateBlog = ({blogs}) => {
 
   const handleUpdateBlog = async (e) => {
     e.preventDefault()
+    toast.success("Blog updated successfully")
     const data = { id, title, slug, img, desc, shortDesc }
     const res = await fetch('/api/UpdateBlog', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': "application/json"
-      }
-    }).then(res => {
-      if (res.ok) {
-        toast.success("Blog updated successfully")
-      } else {
-        toast.error("Some error occured")
       }
     })
   }
