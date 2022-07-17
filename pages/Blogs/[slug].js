@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 import Blog from '../../model/blog'
 import { IoIosSend } from 'react-icons/io'
 import { useState, useEffect } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const Post = ({ blogs }) => {
 	const router = useRouter()
@@ -40,6 +42,7 @@ const Post = ({ blogs }) => {
 
 	const handler = async (e) => {
 		e.preventDefault()
+		toast.success("Comment has been added")
 		setActive(true)
 		comment.push({ name, body })
 		const data = { comment, id }
@@ -56,6 +59,7 @@ const Post = ({ blogs }) => {
 
 	return (
 		<div>
+		<ToastContainer/>
 			{blogs.map((blog) => {
 				if (blog.slug == slug) {
 					myblog = blog
