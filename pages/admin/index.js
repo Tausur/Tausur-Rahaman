@@ -82,7 +82,7 @@ const AdminPage = ({ blogs }) => {
               <div className=''>
               <p className='text-3xl font-bold flex justify-center items-center'>Update Blog</p>
                 <div className=''>     
-                  <form className='w-11/12 mt-4 bg-green-500 px-12 py-8 m-5 rounded-2xl ml-56 shadow-2xl' onSubmit={handleUpdateBlog}>
+                  <form className='w-11/12 mt-4 bg-green-500 px-12 py-8 m-5 rounded-2xl mx-2 shadow-2xl' onSubmit={handleUpdateBlog}>
                     <input type="text" placeholder='Title' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={title} onChange={(e) => setTitle(e.target.value)} />
                     <input type="text" placeholder='ID' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={id} onChange={(e) => setId(e.target.value)} />
                     <input type="text" placeholder='Slug' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={slug} onChange={(e) => setSlug(e.target.value)} />
