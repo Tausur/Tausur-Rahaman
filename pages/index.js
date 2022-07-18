@@ -16,6 +16,10 @@ const Home = ({ blogs }) => {
 
   return (
     <>
+      <Head>
+        <title>Tausur Rahaman</title>
+        <meta name="description" content="This is a website where I will post blogs on various topics. You can know many informations and hopefully my blogs will help you. If you have any doubt than just tell me in the contact section." />
+      </Head>
       <main className='overflow-hidden'>
         <div className=''>
           <div className='w-screen h-full'>
