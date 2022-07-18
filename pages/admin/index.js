@@ -79,16 +79,16 @@ const AdminPage = ({ blogs }) => {
         <div>
           <div className='my-5'>
             {active == 'updateBlog' && <div className=''>
-              <div className='bg-green-400'>
-                <div className=''>
-                  <p className='text-3xl font-bold flex justify-center items-center'>Update Blog</p>
-                  <form className=' mt-4 bg-green-500 px-12 py-8 m-5 rounded-2xl w-1/2 ml-56 shadow-2xl' onSubmit={handleUpdateBlog}>
+              <div className=''>
+              <p className='text-3xl font-bold flex justify-center items-center'>Update Blog</p>
+                <div className=''>     
+                  <form className='w-11/12 mt-4 bg-green-500 px-12 py-8 m-5 rounded-2xl ml-56 shadow-2xl' onSubmit={handleUpdateBlog}>
                     <input type="text" placeholder='Title' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={title} onChange={(e) => setTitle(e.target.value)} />
                     <input type="text" placeholder='ID' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={id} onChange={(e) => setId(e.target.value)} />
                     <input type="text" placeholder='Slug' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={slug} onChange={(e) => setSlug(e.target.value)} />
                     <input type="text" placeholder='Short Desc' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={shortDesc} onChange={(e) => setShortDesc(e.target.value)} />
                     <input type="text" placeholder='Image' className='focus:outline-none text-xl border-black border-b-2 block my-4 w-full bg-transparent placeholder:text-black' value={img} onChange={(e) => setImg(e.target.value)} />
-                    <textarea type="text" placeholder='Description' className='focus:outline-none rounded-xl text-xl border-black border-2 block my-4 bg-transparent placeholder:text-black' cols={32} rows={8} value={desc} onChange={(e) => setDesc(e.target.value)} />
+                    <textarea type="text" placeholder='Description' className='focus:outline-none rounded-xl text-xl border-black border-2 block my-4 bg-transparent placeholder:text-black' cols={72} rows={10} value={desc} onChange={(e) => setDesc(e.target.value)} />
                     <button className='text-xl font-semibold ml-28 cursor-pointer bg-red-500 rounded-lg hover:bg-red-600 px-4 py-2'>Update</button>
                   </form>
                 </div>
