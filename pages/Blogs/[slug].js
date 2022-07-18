@@ -3,17 +3,14 @@ import mongoose from 'mongoose'
 import Blog from '../../model/blog'
 import { IoIosSend } from 'react-icons/io'
 import { useState, useEffect } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
 
 const Post = ({ blogs }) => {
 	const router = useRouter()
 	const { slug } = router.query
+
 	const [body, setBody] = useState('')
 	const [name, setName] = useState('')
 	const [active, setActive] = useState(false)
-	useEffect(() => {
-	}, [active])
 
 	let id;
 	let comment;
@@ -22,7 +19,7 @@ const Post = ({ blogs }) => {
 
 	com()
 
-	function com() {
+	async function com() {
 
 		blogs.map((blog) => {
 			if (blog.slug == slug) {
@@ -40,12 +37,16 @@ const Post = ({ blogs }) => {
 
 	const [mycom, setMycom] = useState(myarr)
 
+	useEffect(() => {
+
+	}, [active])
+
 	const handler = async (e) => {
 		e.preventDefault()
-		toast.success("Comment has been added")
 		setActive(true)
 		comment.push({ name, body })
 		const data = { comment, id }
+		try {
 			const res = await fetch('/api/AddBlogComment', {
 				method: 'POST',
 				body: JSON.stringify(data),
@@ -53,17 +54,21 @@ const Post = ({ blogs }) => {
 					'Content-Type': "application/json"
 				}
 			})
+		} catch (error) {
+			console.log(error)
+		}
 		com()
 		setMycom(myarr)
 	}
+	
 
 	return (
 		<div>
-		<ToastContainer/>
 			{blogs.map((blog) => {
 				if (blog.slug == slug) {
 					myblog = blog
 					id = blog._id
+					let text = myblog.desc.split("/N")
 					comment = blog.comment
 					return <div>
 						<div key={blog._id}>
@@ -71,7 +76,14 @@ const Post = ({ blogs }) => {
 								<img src={blog.img} alt="" />
 							</div>
 							<h1 className='md:text-4xl md:font-bold md:pl-32 md:pb-20 font-bold text-xl m-5 mb-10'>{blog.title}</h1>
-							<p className='md:text-xl font-semibold md:px-32 md:pb-20  text-lg m-5'>{blog.desc}</p>
+							{
+								text.map((i)=>{
+									return <>
+										<p className='md:text-xl font-semibold md:px-32 md:pt-10  text-lg '>{i}</p>
+										<br></br>
+									</>
+								})
+							}
 							<p className='px-32 pb-20 text-3xl'>Comments</p>
 							<form className='justify-center items-center md:justify-start md:items-start mb-12 mx-7' onSubmit={handler}>
 								<input type="text" placeholder='Your name' value={name} onChange={(e) => setName(e.target.value)} className='focus:outline-none border-black md:text-lg border-b md:w-1/4 w-3/4 md:ml-32 md:mb-12 mb-6 block' />
