@@ -42,9 +42,9 @@ const Post = ({ blogs }) => {
 	const handler = async (e) => {
 		e.preventDefault()
 		setActive(true)
+		toast.success("Your comment has been added")
 		comment.push({ name, body })
 		const data = { comment, id }
-		try {
 			const res = await fetch('/api/AddBlogComment', {
 				method: 'POST',
 				body: JSON.stringify(data),
@@ -52,9 +52,6 @@ const Post = ({ blogs }) => {
 					'Content-Type': "application/json"
 				}
 			})
-		} catch (error) {
-			console.log(error)
-		}
 		com()
 		setMycom(myarr)
 	}
