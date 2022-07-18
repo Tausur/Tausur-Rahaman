@@ -68,7 +68,7 @@ const Post = ({ blogs }) => {
 				if (blog.slug == slug) {
 					myblog = blog
 					id = blog._id
-					let text = myblog.desc.split("/N")
+					let text = myblog.desc.split("/N/")
 					comment = blog.comment
 					return <div>
 						<div key={blog._id}>
