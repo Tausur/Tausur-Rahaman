@@ -42,7 +42,6 @@ const Post = ({ blogs }) => {
 
 	const handler = async (e) => {
 		e.preventDefault()
-		toast.success("Comment has been added")
 		setActive(true)
 		comment.push({ name, body })
 		const data = { comment, id }
