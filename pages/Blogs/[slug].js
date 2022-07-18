@@ -11,6 +11,8 @@ const Post = ({ blogs }) => {
 	const [body, setBody] = useState('')
 	const [name, setName] = useState('')
 	const [active, setActive] = useState(false)
+	useEffect(() => {
+	}, [active])
 
 	let id;
 	let comment;
@@ -36,10 +38,6 @@ const Post = ({ blogs }) => {
 	}
 
 	const [mycom, setMycom] = useState(myarr)
-
-	useEffect(() => {
-
-	}, [active])
 
 	const handler = async (e) => {
 		e.preventDefault()
