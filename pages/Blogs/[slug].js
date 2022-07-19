@@ -77,7 +77,7 @@ const Post = ({ blogs }) => {
 							{
 								text.map((i)=>{
 									return <>
-										<p className='md:text-xl font-semibold md:px-32 md:pt-10  text-lg '>{i}</p>
+										<p className='md:text-xl font-semibold md:px-32 md:pt-10  text-lg px-5'>{i}</p>
 										<br></br>
 									</>
 								})
